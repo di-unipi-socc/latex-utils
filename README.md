@@ -1,6 +1,6 @@
 # latex-utils
 
-- [`biblatex`](biblatex.tex) - A biblatex package example. **N.B. very slow complation time** (at least on Overleaf)
+- [`biblatex`](biblatex.tex) - A biblatex package example. **N.B. very slow compilation time** (at least on Overleaf).
 
 - [`commands`](commands.tex) - A collection of useful commands, frequently used in our publications.
 
