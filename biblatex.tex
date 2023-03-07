@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{fancyvrb}
+\usepackage{verbatim}
+\usepackage{csquotes}
+
+%%% N.B. VERY VERY SLOW COMPILATION TIME !!!
+% Bibliography 
+\usepackage[backend=biber, minbibnames=1, maxbibnames=20, bibstyle=ieee, citestyle=numeric-comp, mincitenames=1, maxcitenames=2]{biblatex}
+
+% N.B. Add babel AFTER biblatex to avoid the addition of a comma at the end of each title in the reference list
+\usepackage[english]{babel}
+
+\addbibresource{biblio.bib}
+
+\begin{document}
+
+If use \verb!\cite{citekey}!, the output is:\\ 
+\cite{massa2022daplacer} \\
+\cite{massa2022daplacer, massa2022daplacer} for multiple citations.
+
+\vspace{1cm}
+
+If use \verb!textcite{citekey}!, the output is:\\
+\textcite{massa2022daplacer} \\
+\textcite{massa2022daplacer,forti2022fogbrain} for multiple citations.
+
+\printbibliography[heading=bibintoc]
+
+\end{document}

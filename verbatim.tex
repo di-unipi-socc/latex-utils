@@ -1,0 +1,36 @@
+\documentclass{article}
+
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+\usepackage[dvipsnames]{xcolor}
+% custom verbatim environment for Prolog code
+\DefineVerbatimEnvironment{code}{Verbatim}
+{samepage=true, fontfamily=zi4, fontsize=\small, frame=single, framesep=1mm, framerule=0.1pt, rulecolor=\color{gray}}
+
+% same environment but with numbered code lines
+\DefineVerbatimEnvironment{codeNum}{Verbatim}
+{fontfamily=zi4, numbers=left, numbersep=5pt, numberblanklines=false, firstnumber=last, tabsize=2, fontsize=\footnotesize, frame=single, framesep=1mm, framerule=0.1pt, rulecolor=\color{gray}}
+
+\author{}
+\title{}
+\begin{document}
+
+Some prolog code
+
+\begin{code} 
+application(AppId, [Functions], [Services]).
+\end{code}
+
+Some prolog code with numbered lines
+
+\begin{codeNum}[firstnumber=1]
+fogBrain(App, NewPlacement) :-
+deployment(App, Placement, AllocHW, AllocBW),
+reasoningStep(App, Placement, AllocHW, AllocBW, NewPlacement).
+
+fogBrain(App, Placement) :-
+\+deployment(App,_,_,_),
+placement(App, Placement).
+\end{codeNum}
+
+\end{document}

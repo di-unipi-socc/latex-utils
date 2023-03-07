@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[cm]{fullpage}
+
+\usepackage[show]{chato-notes}
+% \usepackage[show]{chato-notes} % will hide all notes
+% N.B. must have a "chato-notes.sty" file in the same directory of "main.tex"
+\author{}
+\title{}
+\begin{document}
+
+\note{empty} % Multiple paragraphs to check fonts
+\note[author=Matteo,to=Rionda]{for and from}
+\note[author=Matteo,to=]{from only (empty for)}
+\note[author=Matteo]{from only}
+\note[to=Rionda,author=]{for only (empty from)}
+\note[to=Rionda]{for only}
+
+\idea{empty}
+\idea[author=Matteo,to=Rionda]{for and from}
+\idea[author=Matteo,to=]{from only (empty for)}
+\idea[author=Matteo]{from only}
+\idea[to=Rionda,author=]{for only (empty from)}
+\idea[to=Rionda]{for only}
+\idea[date=\today]{date}
+
+\question{empty}
+\question[author=Matteo,to=Rionda]{for and from}
+\question[author=Matteo,to=]{from only (empty for)}
+\question[author=Matteo]{from only}
+\question[to=Rionda,author=]{for only (empty from)}
+\question[to=Rionda]{for only}
+\question[date=\today]{date}
+
+\reply{empty}
+\reply[author=Matteo,to=Rionda]{for and from}
+\reply[author=Matteo,to=]{from only (empty for)}
+\reply[author=Matteo]{from only}
+\reply[to=Rionda,author=]{for only (empty from)}
+\reply[to=Rionda]{for only}
+
+\todo{empty}
+\todo[author=Matteo,to=Rionda]{for and from}
+\todo[author=Matteo,to=]{from only (empty for)}
+\todo[author=Matteo]{from only}
+\todo[to=Rionda,author=]{for only (empty from)}
+\todo[to=Rionda]{for only}
+
+\warning{empty}
+\warning[author=Matteo,to=Rionda]{for and from}
+\warning[author=Matteo,to=]{from only (empty for)}
+\warning[author=Matteo]{from only}
+\warning[to=Rionda,author=]{for only (empty from)}
+\warning[to=Rionda]{for only}
+
+\iidea{text} \inote{text} \iquestion{text} \ireply{text} \itodo{text}
+\iwarning{text}
+\citemissing[Gauss]\ \citemissing\ \refmissing[intro]\ \refmissing%
+
+\end{document}
