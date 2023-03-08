@@ -2,6 +2,7 @@
 
 \usepackage{verbatim}
 \usepackage{fancyvrb}
+\usepackage{fvextra} % allows 'breaklines' as option in custom verbatim environment
 \usepackage[dvipsnames]{xcolor}
 % custom verbatim environment for Prolog code
 \DefineVerbatimEnvironment{code}{Verbatim}
@@ -23,7 +24,7 @@ application(AppId, [Functions], [Services]).
 
 Some prolog code with numbered lines
 
-\begin{codeNum}[firstnumber=1]
+\begin{codeNum}[firstnumber=1, breaklines]
 fogBrain(App, NewPlacement) :-
 deployment(App, Placement, AllocHW, AllocBW),
 reasoningStep(App, Placement, AllocHW, AllocBW, NewPlacement).
