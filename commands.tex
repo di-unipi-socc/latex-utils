@@ -1,14 +1,19 @@
 \documentclass{article}
 \usepackage{inconsolata}
 \usepackage{xspace}
+\usepackage{hyperref}
+\usepackage{cleveref} % use this to avoid the "typos" in Sections/Figure references
 
 \newcommand{\cd}[1]{\texttt{\small #1}\xspace} % code
-\newcommand{\pptext}[1]{\smallskip\noindent \textit{#1 }\xspace} % paragraph text
+\newcommand{\pptext}[1]{\medskip\noindent \textit{#1 }\xspace} % paragraph text
 \newcommand{\diam}{\hfill$\diamond$} % diamond symbol
 
-\newcommand{\secref}[1]{Sect.~\ref{#1}} % section reference
-\newcommand{\figref}[1]{Fig.~\ref{#1}} % figure reference
-\newcommand{\tabref}[1]{Tab.~\ref{#1}} % table reference
+\crefname{section}{Sect.}{Sect.}
+\Crefname{section}{Sect.}{Sect.}
+\crefname{figure}{Fig.}{Fig.}
+\Crefname{figure}{Sect.}{Sect.}
+\crefname{table}{Tab.}{Tab.}
+\Crefname{table}{Sect.}{Sect.}
 
 % Framed-box for definitions
 \newcommand{\colbox}[1]{
@@ -26,15 +31,28 @@
 
 \begin{document}
 
-Code text: \cd{prova}
+\section{Section Title}
+\label{sec:section-title}
 
-\vspace{1cm}
+\subsection{Subsection title}
+\label{sec:subsection-title}
 
-\pptext{Paragraph Title.} Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+\pptext{Crossreference.} \textbf{USE PACKAGE cleveref} to avoid typos.
 
-\vspace{1cm}
+Use \verb!\cref{sec:section-title}! to refer to \cref{sec:section-title}.
 
-Diamond \diam
+\Cref{sec:subsection-title}, use \verb!\Cref{sec:subsection-title}! when the reference is at the beginning of a sentence.
+
+Use starred variants (e.g. \verb!\cref*{sec:section-title}!) to avoid creating hyperlinks. For example, \cref*{sec:section-title}.
+\medskip
+
+\pptext{Code.} Use \verb!\cd{code}! to use the inconsolata font as: \cd{code}.
+\medskip
+
+\pptext{Diamond.} Use \verb!\diam! to add a diamond symbol at the end of a line: (used for examples sections) \diam
+\medskip
+
+\pptext{Colored/Framed box.} Example:
 
 \colbox{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempor tincidunt commodo. Nulla suscipit molestie faucibus. Phasellus metus ante, consectetur sit amet tincidunt a, vehicula sit amet nulla. In euismod tempor sem in dictum. Praesent odio lorem, laoreet tincidunt varius nec, blandit vitae tortor. In accumsan a libero sed aliquam. Aenean quis commodo nisi. Pellentesque ut eros a orci tristique pharetra in non nunc.}
 
