@@ -1,6 +1,7 @@
 out/
 node_modules/
 .vscode-test/
+*.DS_Store*
 *.vsix
 server/*
 !server/.gitkeep
