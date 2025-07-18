@@ -1,6 +1,8 @@
 # latex-utils
 
-- [`biblatex`](biblatex/biblatex.tex) - A biblatex package example. **N.B. slows down the compilation time** (at least on Overleaf).
+- [`biblatex`](biblatex/biblatex.tex) - A biblatex package example.
+
+- [`changes`](changes/changes.tex) - A package to track changes in LaTeX documents. It provides commands to mark changes, additions, deletions, and comments, and can generate a list of changes.
 
 - [`commands`](commands/commands.tex) - A collection of useful commands, frequently used in our publications.
 

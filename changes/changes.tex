@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[british]{babel}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{fancyvrb}
+\usepackage{changes}
+\usepackage{csquotes}
+
+% Define authors for changes
+\definechangesauthor[name={Alice}, color=blue]{alice}
+\definechangesauthor[name={Bob}, color=red]{bob}
+
+\title{A Brief Guide to the \texttt{changes} Package}
+\author{Prepared by Alice \& Bob}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+This short guide demonstrates how to use the \texttt{changes} package in \LaTeX{} to track and display edits in a collaborative document.
+
+\section*{Basic Usage}
+
+To use the package, load it in your preamble:
+
+\begin{Verbatim}
+	\usepackage[<options>]{changes}
+	\definechangesauthor[name={Alice}, color=blue]{alice}
+	\definechangesauthor[name={Bob}, color=red]{bob}
+\end{Verbatim}
+
+\section*{Examples}
+
+\subsection*{1. Adding Text}
+
+\begin{Verbatim}
+	This is \added[id=alice]{a new sentence} added by Alice.
+\end{Verbatim}
+
+Output:
+This is \added[id=alice]{a new sentence} added by Alice.
+
+\vspace{1em}
+
+\subsection*{2. Deleting Text}
+
+\begin{Verbatim}
+	This sentence \deleted[id=bob]{contains redundant information}.
+\end{Verbatim}
+
+Output:
+This sentence \deleted[id=bob]{contains redundant information}.
+
+\vspace{1em}
+
+\subsection*{3. Replacing Text}
+
+\begin{Verbatim}
+	He \replaced[id=alice]{revised the manuscript}{wrote the paper}.
+\end{Verbatim}
+
+Output:
+He \replaced[id=alice]{revised the manuscript}{wrote the paper}.
+
+\vspace{1em}
+
+\subsection*{4. Commenting}
+
+\begin{Verbatim}
+	\comment[id=bob]{Consider rephrasing this paragraph.}
+\end{Verbatim}
+
+Output (as footnote):
+\comment[id=bob]{Consider rephrasing this paragraph.}
+
+\vspace{1em}
+
+\section*{Final Mode}
+
+To hide all tracked changes and show only the final version of the text, load the package with:
+
+\begin{Verbatim}
+	\usepackage[final]{changes}
+\end{Verbatim}
+
+\section*{Print list of changes}
+
+\begin{Verbatim}
+	\listofchanges[style=<style>, title=<title>, show=<type>]
+\end{Verbatim}
+
+\listofchanges[title={List of Changes}]
+
+\end{document}
