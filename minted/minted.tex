@@ -1,0 +1,65 @@
+\documentclass{article}
+
+\usepackage{inconsolata}
+\usepackage{minted}
+\usepackage{csquotes}
+
+% custom verbatim environment for Prolog code
+
+\newminted[code]{prolog}{
+  fontfamily=tt,
+  fontsize=\footnotesize,
+  frame=single,
+  framesep=1mm,
+  framerule=0.1pt,
+  rulecolor=\color{gray},
+  tabsize=2,
+  gobble=1,
+  breaklines
+}
+
+\newminted[codenum]{prolog}{
+  fontfamily=tt,
+  fontsize=\footnotesize,
+  frame=single,
+  framesep=1mm,
+  framerule=0.1pt,
+  rulecolor=\color{gray},
+  linenos,
+  numbersep=5pt,
+  numberblanklines=false,
+  tabsize=4,
+  gobble=1,
+  breaklines
+}
+
+\author{}
+\title{}
+\begin{document}
+
+Some prolog code
+
+\begin{code}
+	application(AppId, [Functions], [Services]).
+\end{code}
+
+Some prolog code with numbered lines
+
+\begin{codenum}[firstnumber=1]
+	fogBrain(App, NewPlacement) :-
+	    deployment(App, Placement, AllocHW, AllocBW),
+	    reasoningStep(App, Placement, AllocHW, AllocBW, NewPlacement).
+	    veryveryveryveryveryveryveryveryveryveryveryveryveryveryLongPredicate(A, B, C, D, E, F, G, H, I).
+
+	fogBrain(App, Placement) :-
+	    \+ deployment(App,_,_,_),
+	    placement(App, Placement).
+\end{codenum}
+
+\noindent \textbf{N.B.} If using minted v2, and you want to pass options, use the starred environment, as follows:
+\begin{code*}{firstnumber=100}
+	application(AppId, [Functions], [Services]).
+\end{code*}
+This works with minted v3 as well, but is not necessary. For v3 use the version above.
+
+\end{document}
