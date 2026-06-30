@@ -8,4 +8,6 @@
 
 - [`todo-notes`](todo-notes/todo-notes.tex) - A simple notes, todos, ideas, questions, replies, etc. styling example. **N.B. must include a _chato-notes.sty_ file** in the same directory (or use the default one provided [here](chato-notes.sty)).
 
-- [`verbatim`](verbatim/verbatim.tex) - some useful verbatim environments (e.g. for Prolog code, etc.)
+- [`verbatim`](verbatim/verbatim.tex) - Some useful verbatim environments (e.g. for Prolog code, etc.)
+
+- [`minted`](minted/minted.tex) - Same verbatim environments as above, but using the `minted` package (requires `pygments` to be installed).

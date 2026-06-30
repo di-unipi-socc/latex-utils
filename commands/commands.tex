@@ -28,12 +28,42 @@
 \newcommand{\ie}{i.e.,\,}
 \newcommand{\eg}{e.g.,\,}
 
-\crefname{section}{Sect.}{Sect.}
-\Crefname{section}{Sect.}{Sect.}
-\crefname{figure}{Fig.}{Fig.}
-\Crefname{figure}{Fig.}{Fig.}
-\crefname{table}{Table}{Table}
-\Crefname{table}{Table}{Table}
+% CLEVEREF CONFIGURATION
+\usepackage{cleveref}
+\newcommand{\crefnames}[2]{%
+  \crefname{#1}{#2}{#2}%
+  \Crefname{#1}{#2}{#2}%
+}
+
+\crefnames{section}{Section}
+\crefnames{figure}{Figure}
+\crefnames{table}{Table}
+\crefnames{definition}{Definition}
+\crefnames{lemma}{Lemma}
+\crefnames{theorem}{Theorem}
+\crefnames{proposition}{Proposition}
+\crefnames{corollary}{Corollary}
+
+% THEOREM ENVIRONMENTS
+\usepackage{amsthm}
+\usepackage{aliascnt}
+\newtheorem{definition}{Definition}[section]
+
+\newaliascnt{lemma}{definition}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+
+\newaliascnt{theorem}{definition}
+\newtheorem{theorem}[theorem]{Theorem}
+\aliascntresetthe{theorem}
+
+\newaliascnt{proposition}{definition}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+
+\newaliascnt{corollary}{definition}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
 
 % Framed-box for definitions
 \newcommand{\colbox}[1]{
