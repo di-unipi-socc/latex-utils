@@ -269,3 +269,7 @@ TSWLatexianTemp*
 
 # dist
 dist/
+
+# Custom
+_build/
+.DS_Store

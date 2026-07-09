@@ -2,7 +2,7 @@
 \usepackage{inconsolata}
 \usepackage{xspace}
 \usepackage{hyperref}
-\usepackage{cleveref} % use this to avoid the "typos" in Sections/Figure references
+\usepackage[capitalise,noabbrev]{cleveref} % use this to avoid the "typos" in Sections/Figure references
 \usepackage{siunitx}
 \sisetup{
     detect-all,               % Automatically detect surrounding font styles (bold, italic, etc.)
@@ -27,22 +27,6 @@
 \newcommand{\diam}{\hfill$\diamond$} % diamond symbol
 \newcommand{\ie}{i.e.,\,}
 \newcommand{\eg}{e.g.,\,}
-
-% CLEVEREF CONFIGURATION
-\usepackage{cleveref}
-\newcommand{\crefnames}[2]{%
-  \crefname{#1}{#2}{#2}%
-  \Crefname{#1}{#2}{#2}%
-}
-
-\crefnames{section}{Section}
-\crefnames{figure}{Figure}
-\crefnames{table}{Table}
-\crefnames{definition}{Definition}
-\crefnames{lemma}{Lemma}
-\crefnames{theorem}{Theorem}
-\crefnames{proposition}{Proposition}
-\crefnames{corollary}{Corollary}
 
 % THEOREM ENVIRONMENTS
 \usepackage{amsthm}
@@ -89,6 +73,12 @@
 
 \pptext{Crossreference}
 
+\begin{lemma}
+	\label{lem:my-lemma}
+	My lemma.
+\end{lemma}
+
+\verb!\cref{lem:my-lemma}! to refer to \cref{lem:my-lemma}.
 \verb!\cref{sec:section-title}! to refer to \cref{sec:section-title}.
 
 \Cref{sec:subsection-title}, \verb!\Cref{sec:subsection-title}! when the reference is at the beginning of a sentence.
