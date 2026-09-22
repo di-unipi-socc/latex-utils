@@ -1,0 +1,50 @@
+\documentclass{article}
+% Requires paper-utils-full.sty, copied here as paper-utils.sty.
+% To hide notes, uncomment before loading paper-utils:
+% \PassOptionsToPackage{disable}{todonotes}
+\usepackage{paper-utils}
+\setlength{\marginparwidth}{2cm}
+
+\title{A Brief Guide to the \texttt{todonotes} package}
+\date{\today}
+\author{\href{https://pages.di.unipi.it/massa}{Jacopo Massa}}
+
+\begin{document}
+
+\maketitle
+
+\section*{\texttt{todo} command}
+
+Use the \verb|\todo{<text>}| command to insert a note in the margin. The note will be numbered and will appear in the list of todos at the end of the document.
+\begin{Verbatim}
+	This paragraph needs a reference.\todo{Add a reference.}
+\end{Verbatim}
+Output:
+This paragraph needs a reference.\todo{Add a reference.}
+
+\section*{Inline notes}
+
+Use the \verb|\todo[inline]{<text>}| command to insert a note in the text itself, rather than in the margin.
+\begin{Verbatim}
+	\todo[inline]{Check the experimental setup before submission.}
+\end{Verbatim}
+Output:
+\todo[inline]{Check the experimental setup before submission.}
+
+\vspace{0.5cm}\noindent You can also specify the author and color of the note:
+\begin{Verbatim}
+	\todo[inline,author=Jacopo,color=green!20]{Update the results.}
+\end{Verbatim}
+Output:
+\todo[inline,author=Jacopo,color=green!20]{Update the results.}
+
+\section*{List of todos}
+
+To generate a list of all todos in the document, use the \verb|\listoftodos[<Custom Title>]| command at the desired location.It can also be added to the Table of Contents using \verb|\todototoc| in the preamble. Example below:
+
+{
+	\hypersetup{hidelinks}
+	\listoftodos[My Todos]
+}
+
+\end{document}

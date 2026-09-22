@@ -1,18 +1,15 @@
 \documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[british]{babel}
-\usepackage[a4paper, margin=2.5cm]{geometry}
-\usepackage{fancyvrb}
-\usepackage{changes}
-\usepackage{csquotes}
+% Requires paper-utils-full.sty, copied here as paper-utils.sty.
+% To accept all revisions, uncomment before loading paper-utils:
+% \PassOptionsToPackage{final}{changes}
+\usepackage{paper-utils}
 
 % Define authors for changes
 \definechangesauthor[name={Alice}, color=blue]{alice}
 \definechangesauthor[name={Bob}, color=red]{bob}
 
-\title{A Brief Guide to the \texttt{changes} Package}
-\author{Prepared by Alice \& Bob}
+\title{A Brief Guide to the \texttt{changes} package}
+\author{\href{https://pages.di.unipi.it/massa}{Jacopo Massa}}
 \date{\today}
 
 \begin{document}
@@ -23,10 +20,9 @@ This short guide demonstrates how to use the \texttt{changes} package in \LaTeX{
 
 \section*{Basic Usage}
 
-To use the package, load it in your preamble:
+First, define the authors who will be making changes using the \verb|\definechangesauthor| command. Each author is assigned a unique ID and a color for their changes.
 
 \begin{Verbatim}
-	\usepackage[<options>]{changes}
 	\definechangesauthor[name={Alice}, color=blue]{alice}
 	\definechangesauthor[name={Bob}, color=red]{bob}
 \end{Verbatim}
@@ -82,7 +78,8 @@ Output (as footnote):
 To hide all tracked changes and show only the final version of the text, load the package with:
 
 \begin{Verbatim}
-	\usepackage[final]{changes}
+	\PassOptionsToPackage{final}{changes}
+	\usepackage{paper-utils}
 \end{Verbatim}
 
 \section*{Print list of changes}

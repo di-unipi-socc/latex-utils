@@ -1,0 +1,47 @@
+\documentclass{article}
+% Each code line below has four leading spaces removed by gobble.
+\usepackage[minted=true,tabsize=4,gobble=4]{paper-utils}
+
+\title{A Brief Guide to the \texttt{minted} package}
+\date{\today}
+\author{\href{https://pages.di.unipi.it/massa}{Jacopo Massa}}
+
+\begin{document}
+
+\maketitle
+
+\section*{Options}
+Be sure to set the options \verb|tabsize| and \verb|gobble| in the preamble, as shown below.
+
+\begin{Verbatim}
+	\usepackage[minted=true,tabsize=4,gobble=1]{paper-utils}
+\end{Verbatim}
+
+\noindent
+\verb|tabsize| (default: 4) sets the number of spaces per tab character.\\
+\verb|gobble| (default: 4) sets the number of characters to remove from the beginning of each line of code. This is useful for removing leading whitespace in indented code blocks.\\
+
+\noindent In the \texttt{paper-utils} package, there are two environments for including code: \verb|code| (for unnumbered code blocks) and \verb|codenum| (for numbered ones).
+
+\section*{\texttt{code} environment}
+\begin{code}
+    application(AppId, [Functions], [Services]).
+\end{code}
+
+\section*{\texttt{codenum} environment}
+\begin{codenum*}{firstnumber=1}
+    fogBrain(App, NewPlacement) :-
+        deployment(App, Placement, AllocHW, AllocBW),
+        reasoningStep(App, Placement, AllocHW, AllocBW, NewPlacement).
+
+    fogBrain(App, Placement) :-
+    placement(App, Placement).
+\end{codenum*}
+
+\noindent To use options (\eg \cd{firstnumber=1}), use the starred version of the environment, \ie \verb|codenum*.|
+
+\section*{``\texttt{.localSettings.yaml}'' file}
+
+If you use \cd{latexIndent} on your local machine, you can copy the \cd{.localSettings.yaml} file from the \cd{packages} folder to the directory where your \cd{.tex} files are located. This will deactivate the auto-indentation of the \cd{code} and \cd{codenum} environments.
+
+\end{document}

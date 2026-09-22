@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[box-border=CadetBlue,box-background=AliceBlue]{paper-utils}
+% To use custom colours, pass the options to the package as shown above. The colours must be defined in xcolor or with \definecolor.
+
+\title{A Brief Guide to some \LaTeX{} and \texttt{paper-utils} commands}
+\author{\href{https://pages.di.unipi.it/massa}{Jacopo Massa}}
+\date{\today}
+
+\begin{document}
+
+\section{Section Title}
+\label{sec:section-title}
+
+\subsection{Subsection title}
+\label{sec:subsection-title}
+
+\pptext{My Paragraph} The \verb!\pptext{<title>}! command is used to create a custom paragraph, which starts with an italic title followed by a dot.
+
+\begin{lemma}
+	\label{lem:my-lemma}
+	My lemma.
+\end{lemma}
+
+\section*{Cleveref}
+\noindent
+\verb!\cref{lem:my-lemma}! to refer to \cref{lem:my-lemma}.\\
+\verb!\cref{sec:section-title}! to refer to \cref{sec:section-title}.\\
+\verb!\cref*{sec:section-title}! to avoid creating hyperlinks $\longrightarrow$ \cref*{sec:section-title}.
+\medskip
+
+\section*{Code}
+
+% Both code samples should use the same monospaced font with every engine.
+\verb|\texttt{file\_name}| uses the monospaced font; special characters need escaping $\longrightarrow$ \texttt{file\_name}.\\
+\verb|\verb!file_name!| prints special characters literally $\longrightarrow$ \verb!file_name!.\\
+\verb!\cd{code}! to use the inconsolata $\longrightarrow$ \cd{code}.\\
+\verb!\fncd{code}! to use the inconsolata in footnotes $\longrightarrow$ \fncd{code}.\\
+\medskip
+
+\section*{Diamond}
+
+Use \verb!\diam! to add a diamond symbol at the end of a line:
+
+(used for examples sections) \diam
+\medskip
+
+\section*{Colored/Framed box}
+
+\framedbox{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempor tincidunt commodo. Nulla suscipit molestie faucibus. Phasellus metus ante, consectetur sit amet tincidunt a, vehicula sit amet nulla. In euismod tempor sem in dictum. Praesent odio lorem, laoreet tincidunt varius nec, blandit vitae tortor. In accumsan a libero sed aliquam. Aenean quis commodo nisi. Pellentesque ut eros a orci tristique pharetra in non nunc.}
+
+\noindent To color the box, pass the options \verb!box-border=<color>! and \verb!box-background=<color>! to the package. The colours must be defined in xcolor or with \verb!\definecolor!. Default colours are \verb!box-border=black! and \verb!box-background=white!.
+
+\section*{SIUnit}
+
+Use the \verb!siunitx! package to typeset SI units and numbers.\\The following examples demonstrate the usage:\\
+
+\noindent
+\verb!\SI{10}{\meter}! $\longrightarrow$ \SI{10}{\meter}.\\
+\verb!\num{10}! $\longrightarrow$ \num{10}.\\
+\verb!\unit{\kilo\gram\metre\per\square\second}! $\longrightarrow$ \unit{\kilo\gram\metre\per\square\second}.
+
+\end{document}

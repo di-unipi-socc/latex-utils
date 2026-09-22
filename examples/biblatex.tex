@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{paper-utils}
+\addbibresource{references.bib}
+
+\title{A Brief Guide to the \texttt{biblatex} package}
+\author{\href{https://pages.di.unipi.it/massa}{Jacopo Massa}}
+\date{\today}
+
+\begin{document}
+
+If use \verb!\cite{citekey}!, the output is:\\
+``\cite{massa2022daplacer}'', for a single citation.\\
+``\cite{massa2022daplacer,forti2022fogbrain}'', for multiple citations.
+
+\vspace{1cm}
+
+If use \verb!\textcite{citekey}!, the output is:\\
+``\textcite{massa2022daplacer}'', for a single citation.\\
+``\textcite{massa2022daplacer,forti2022fogbrain}'', for multiple citations.
+
+\AtNextBibliography{\footnotesize}
+\printbibliography[heading=bibintoc]
+
+\end{document}

@@ -1,0 +1,108 @@
+% Maintainer: Jacopo Massa
+% Version: 1.0.0
+% Date: 2026/09/22
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{paper-utils}[2026/09/22 v1.0.0 Light paper utilities (Jacopo Massa)]
+
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{family=paperutilslight,prefix=paperutilslight@}
+\DeclareBoolOption[true]{verbatim}
+\DeclareBoolOption[false]{minted}
+\DeclareStringOption[4]{gobble}
+\DeclareStringOption[4]{tabsize}
+\DeclareStringOption[english]{language}
+\ProcessKeyvalOptions*
+
+% Minted takes precedence, regardless of option order.
+\ifpaperutilslight@minted
+	\paperutilslight@verbatimfalse
+\fi
+
+% Shared dependencies and bibliography settings.
+\RequirePackage{iftex}
+\ifPDFTeX
+	\RequirePackage{inconsolata}
+\else
+	\RequirePackage{fontspec}
+	\setmonofont{Inconsolatazi4}
+\fi
+\RequirePackage{xspace}
+
+\PassOptionsToPackage{usenames, dvipsnames, svgnames, x11names}{xcolor}
+\RequirePackage{xcolor}
+
+\RequirePackage[backend=biber, minbibnames=1, maxbibnames=20, bibstyle=ieee, citestyle=numeric-comp, mincitenames=1, maxcitenames=2, giveninits=true, uniquename=false]{biblatex}
+\RequirePackage[\paperutilslight@language]{babel}
+\RequirePackage{siunitx}
+\sisetup{
+	detect-all,               % Automatically detect surrounding font styles (bold, italic, etc.)
+	output-decimal-marker=.,  % Use a period as the decimal marker (default is locale-specific)
+	separate-uncertainty=true,% Separate uncertainty with ± symbol
+	multi-part-units=single,  % Use single units for multi-part values
+	per-mode=symbol,          % Use '/' for units like m/s
+	exponent-product=\cdot,   % Use a dot (·) for scientific notation
+	output-complex-root=\text{j}, % Use 'j' for imaginary unit
+	range-phrase=--,          % Use an en-dash for ranges (e.g., 10--20)
+	range-units=single,       % Display the unit only once in ranges
+	group-digits=integer,     % Group digits in integers
+	group-separator={\,},     % Use a thin space for digit grouping
+	group-minimum-digits=4,   % Start grouping for numbers with 4+ digits
+	retain-explicit-plus=true % Keep '+' sign for positive numbers
+}
+
+\newcommand{\cd}[1]{\texttt{\small #1}\xspace} % code
+\newcommand{\verbcomment}[1]{\textbf{\textcolor{gray}{#1}}} % colored comments for verbatim environments
+\newcommand{\fncd}[1]{\texttt{\footnotesize #1}\xspace} % code in footnotes
+\newcommand{\pptext}[1]{\medskip\noindent \textit{#1.}\xspace} % paragraph text
+\newcommand{\diam}{\hfill$\diamond$} % diamond symbol
+\newcommand{\ie}{i.e.,\,}
+\newcommand{\eg}{e.g.,\,}
+
+\RequirePackage{hyperref}
+\RequirePackage[capitalise,noabbrev]{cleveref}
+
+\ifpaperutilslight@minted
+	\RequirePackage{minted}
+
+	\newminted[code]{prolog}{
+		fontfamily=tt,
+		fontsize=\footnotesize,
+		frame=single,
+		framesep=1mm,
+		framerule=0.1pt,
+		rulecolor=\color{gray},
+		tabsize=\paperutilslight@tabsize,
+		gobble=\paperutilslight@gobble,
+		breaklines
+	}
+
+	\newminted[codenum]{prolog}{
+		fontfamily=tt,
+		fontsize=\footnotesize,
+		frame=single,
+		framesep=1mm,
+		framerule=0.1pt,
+		rulecolor=\color{gray},
+		linenos,
+		numbersep=5pt,
+		numberblanklines=false,
+		tabsize=\paperutilslight@tabsize,
+		gobble=\paperutilslight@gobble,
+		breaklines
+	}
+\fi
+
+\ifpaperutilslight@verbatim
+	\RequirePackage{fvextra}
+
+	\DefineVerbatimEnvironment{code}{Verbatim}
+	{gobble=\paperutilslight@gobble, tabsize=\paperutilslight@tabsize, fontfamily=tt, fontsize=\footnotesize, frame=single, framesep=1mm, framerule=0.1pt, rulecolor=\color{gray},vspace=0pt}
+
+	\DefineVerbatimEnvironment{codenum}{Verbatim}
+	{gobble=\paperutilslight@gobble, fontfamily=tt, numbers=left, numbersep=5pt, numberblanklines=false, firstnumber=last, tabsize=\paperutilslight@tabsize, vspace=0pt, fontsize=\footnotesize, frame=single, framesep=1mm, framerule=0.1pt, rulecolor=\color{gray}, commandchars=\\\{\}}
+\fi
+
+% Load after both code backends: minted also loads fvextra.
+\RequirePackage{csquotes}
+
+\endinput
