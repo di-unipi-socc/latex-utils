@@ -5,7 +5,7 @@ below next to your main `.tex` file and rename it `paper-utils.sty`.
 
 | Variant | Includes |
 | --- | --- |
-| [Light](packages/paper-utils-light.sty) | Configured biblatex, siunitx and cleveref; Inconsolata; code environments; `\cd`, `\verbcomment`, `\fncd`, `\pptext`, `\diam`, `\ie`, `\eg` |
+| [Light](packages/paper-utils-light.sty) | Configured biblatex, siunitx, caption and cleveref; Inconsolata; code environments; `\cd`, `\verbcomment`, `\fncd`, `\pptext`, `\diam`, `\ie`, `\eg` |
 | [Full](packages/paper-utils-full.sty) | Everything in light, plus theorem environments, `\framedbox`, changes and todonotes |
 
 Both declare the same package name. To switch variants, replace `paper-utils.sty`
@@ -149,6 +149,11 @@ The bibliography uses Biber with the IEEE bibliography style and compact numeric
 citations. Set your bibliography file with `\addbibresource` and print it with
 `\printbibliography`. Load paper-utils after other packages that must precede
 cleveref.
+
+Both variants load caption with smaller text, bold labels and left alignment,
+including single-line captions. Change these settings with `\captionsetup{...}`
+after loading paper-utils. If caption was already loaded, the options passed by
+paper-utils do not change its existing settings; use `\captionsetup` explicitly.
 
 The full variant defines `definition`, `lemma`, `theorem`, `proposition` and
 `corollary`, sharing a counter that resets in each section. Do not redefine these
